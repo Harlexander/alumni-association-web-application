@@ -12,6 +12,8 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
+      pry : "#FEC000",
+      pry_lite : "#EFE7BB",
     },
     extend: {
       minHeight: {
