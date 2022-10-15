@@ -4,7 +4,11 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   purge: {
     enabled: true,
-    content: ["./**/*.html", "./*.html", "./**/*.js", "./*.js"],
+    content: [
+      "./pages/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,jsx,tsx}",
+      "./layouts/**/*.{js,ts,jsx,tsx}"
+    ],
     options: {
       safelist: [],
     },
@@ -12,8 +16,13 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      pry : "#FEC000",
-      pry_lite : "#EFE7BB",
+      "pry" : "#FEC000",
+      'pry-lite' : "#EFE7BB",
+    },
+    fontFamily : {
+      'pry' : ['DM Serif Display', 'sans-serif'],
+      'sec' : ['Nunito', 'sans-serif'],
+      'alt' : ['Montserrat', 'roboto']
     },
     extend: {
       minHeight: {
@@ -90,6 +99,7 @@ module.exports = {
   ],
   plugins: [
     require("@tailwindcss/forms"),
+    require("flowbite/plugin"),
     plugin(function ({ addComponents, theme }) {
       const screens = theme("screens", {});
       addComponents([
